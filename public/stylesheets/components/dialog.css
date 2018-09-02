@@ -1,0 +1,1980 @@
+.dialog_open_class{
+    overflow: hidden;
+}
+
+.dialog_back_drop{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow:auto;
+    background:url("../../img/back_drop_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/back_drop_bg.png*/ repeat;
+}
+.highlight{
+    color: #f75555 !important;
+}
+.dialog{
+    width:600px;
+    border: 1px solid #dfdfdf;
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    margin-left: -300px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 18px #dcdcdc;
+    -moz-box-shadow: 0 0 18px #dcdcdc;
+    box-shadow: 0 0 18px #dcdcdc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* color: white; */
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: 200ms ease;
+}
+.dialog.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.dialog.login_dialog{
+    width:480px;
+    height:510px;
+    margin-left: -240px;
+}
+.dialog .dialog_close_btn{
+    display:block;
+    width:16px;
+    height:16px;
+    position:absolute;
+    right:20px;
+    top:20px;
+	color:#1a98d5;
+	z-index : 30;
+}
+.dialog .dialog_close_btn:hover{
+	color:#0c5d86;
+}
+.dialog .dialog_close_btn i{
+    font-size:16px;
+}
+.dialog .dialog_header{
+    padding-top:15px;
+    text-align: center;
+    border-bottom:1px solid #dadada;
+    margin:0 10px;
+}
+.dialog  .dialog_title{
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 0 15px;
+    color: #1a98d5;
+    border-bottom: 3px solid #1a98d5;
+    font-weight: normal;
+    font-family: "Microsoft YaHei";
+}
+
+.dialog .dialog_body{
+	padding:10px 10px 80px 10px;
+}
+.dialog .form_item{
+    clear: both;
+    padding:10px;
+}
+.dialog .form_item .label{
+    height:40px;
+    line-height: 40px;
+    width:80px;
+    float:left;
+    color: #1a98d5;
+    text-align:left;
+}
+.dialog .form_item .single_value_container{
+    padding-left:80px;
+/*    height:40px;
+    line-height: 40px;*/
+    text-align: left;
+}
+.dialog .form_item .multiple_value_container{
+    padding-left:80px;
+    height:auto;
+}
+.dialog .form_item.no_label .single_value_container{
+    padding-left:0;
+}
+
+.dialog .form_item .drop_btn{
+    display: block;
+    width:50px;
+    height:18px;
+    padding:10px 0;
+    float: left;
+    border-left:1px solid #efefef;
+    text-align:center;
+}
+.dialog .form_item .drop_btn i{
+	font-size:18px;
+}
+.dialog .form_item .multiple_label_wrapper,.dialog .form_item .single_label_wrapper{
+    height:38px;
+    border:1px solid #efefef;
+    position: relative;
+   	border-radius:10px;
+}
+.dialog .form_item .multiple_label_wrapper.required,.dialog .form_item .single_label_wrapper.required{
+	border-color:red;
+}
+.dialog .form_item .theme_container.open{
+	border-radius: 10px 10px 10px 0;
+}
+    
+.dialog .form_item .no_label_wrapper{
+    height:40px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    line-height: 40px;
+    width : 90%;
+}
+.dialog .form_item .no_label_wrapper  span{
+	padding:0 5px;
+}
+.dialog .form_item .multiple_label_wrapper input{
+    width:416px;
+    height:18px;
+    line-height: 18px;
+    padding:10px 0 10px 10px;
+    border-radius: 10px;
+    float:left;
+}
+.dialog .form_item .single_label_wrapper input{
+    width:468px;
+    border-radius: 10px;
+    height:18px;
+    line-height: 18px;
+    padding:10px 0 10px 10px;
+}
+.dialog .form_item.no_label .multiple_label_wrapper input{
+    width:490px;
+}
+.dialog .form_item.no_label .single_label_wrapper input{
+    width:548px;
+}
+
+.dialog .form_item .existed_theme_list,.dialog .form_item .other_theme_list{
+    width:416px;
+    border:1px solid #efefef;
+    border-top:0;
+    padding:5px;
+    position: absolute;
+    left:-1px;
+    top:40px;
+    background: #fff;
+    border-radius:0 0 10px 10px ;
+    z-index:10;
+}
+.dialog .form_item .drop_menu{
+	display:none;
+}
+.dialog .form_item .other_theme_list{
+    /*width:468px;
+    top:0;
+    border-radius: 10px;
+    padding-top:10px;*/
+}
+.dialog .form_item .other_theme_list h3{
+    line-height: 30px;
+    color: #1a98d5;
+    font-size: 14px;
+    font-weight: normal;
+    float:left;
+}
+.dialog .form_item .other_theme_list .close{
+	display:block;
+	width:18px;
+	height:14px;
+	margin:8px 0;
+	font-size:14px;
+	float:right;
+	color:#1a98d5;
+}
+.dialog .form_item .other_theme_list .close:hover{
+	color:#0c5d86;
+}
+.dialog .form_item .other_theme_list .theme_list_wrapper{
+    margin-top:10px;
+    clear:both;
+}
+.dialog .form_item .theme_list_wrapper{
+	max-height:160px;
+	overflow:auto;
+}
+.dialog .form_item .theme_list_wrapper ul{
+/*     padding:10px; */
+}
+.dialog .form_item .theme_list_wrapper .theme_item{
+    height:16px;
+    padding:6px 10px;
+    border:1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dialog .form_item .theme_list_wrapper .theme_item i{
+	display:block;
+	float:left;
+	font-size:16px;
+}
+.dialog .form_item .theme_list_wrapper .theme_item span{
+	display:block;
+	margin-left:20px;
+	max-width:340px;
+	height:16px;
+	line-height:16px;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-align : left;
+}
+.dialog .form_item .theme_list_wrapper ul .theme_item:hover{
+    background: #ecf1f7;
+    border-color: #cde2ec;
+    color: #1a98d5;
+}
+.dialog .form_item .show_other_theme{
+    float: left;
+    line-height: 30px;
+    color:#1a98d5;
+}
+
+.dialog.store_general_case .checkbox_group{
+    height:40px;
+    line-height: 40px;
+    float: left;
+    margin-right:10px;
+    padding-left:25px;
+    cursor:pointer;
+    background:url("../../img/checkbox_bg1.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg1.png*/ no-repeat left center;
+}
+.dialog.store_general_case .checkbox_group.active{
+    background:url("../../img/checkbox_bg1_active.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg1_active.png*/ no-repeat left center;
+}
+.dialog.store_general_case .document_list{
+	overflow:hidden;
+	max-height:220px;
+}
+.dialog.store_general_case .document_list.open{
+	overflow-y:auto;
+}
+.dialog.store_general_case .document_list li{
+	line-height: 38px;
+	width : 90%;
+	overflow : hidden;
+	text-overflow : ellipsis;
+	white-space: nowrap;
+}
+.dialog.store_general_case .document_item{
+    height:38px;
+    line-height: 38px;
+    text-align: center;
+    border:1px dashed #efefef;
+    margin-bottom:15px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px dashed #dadada;
+}
+.dialog.store_general_case .document_item:hover,.dialog.store_general_case .document_item.active{
+    border: 1px solid #cde2ec;
+    background: #ecf1f7;
+    color: #1b8acb;
+}
+.dialog.store_general_case .show_more_document{
+    display: block;
+    float: right;
+    height:20px;
+    line-height: 20px;
+    color: #1a98d5;
+    margin-top:10px;
+}
+
+/*笔记*/
+.dialog.add_note {
+	top : 60px;
+}
+.dialog.add_note .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.add_note .dialog_body{
+	padding-bottom:0px;
+}
+.dialog.add_note .hint_info{
+	height:30px;
+	line-height:30px;
+	color:#999999;
+	font-size:12px;
+}
+.dialog.add_note .note_content{
+	line-height:24px;
+	margin-bottom:30px;
+}
+.dialog.add_note .multiple_label_wrapper.selected_label_wrapper{
+    background: #f9f9f9;
+}
+.dialog.add_note .multiple_label_wrapper.selected_label_wrapper.open{
+	border-radius:10px 10px 10px 0;
+}
+.dialog.add_note .multiple_label_wrapper.selected_label_wrapper input{
+	background:none;
+}
+.dialog.add_note .single_label_wrapper.single_textarea_wrapper{
+    height:150px;
+    background: #f9f9f9;
+}
+.dialog.add_note .single_label_wrapper.single_textarea_wrapper .note{
+    width:520px;
+    height:130px;
+    background: #f9f9f9;
+    padding:10px;
+    border-radius:10px;
+    line-height:24px;
+    overflow : auto;
+}
+.dialog.add_note .lable_list{
+	width:490px;
+	max-height:200px;
+	overflow-y:auto;
+	background:#f9f9f9;
+    border:1px solid #efefef;
+    border-top:0;
+    padding:5px;
+    position: absolute;
+    left:-1px;
+    top:40px;
+    border-radius:0 0 10px 10px;
+    z-index:10;
+    display:none;
+}
+.dialog.add_note .lable_list ul{
+	padding:10px;
+}
+.dialog.add_note .lable_list .lable_item{
+    height:16px;
+    padding:6px 10px;
+    border:1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+    margin-right:10px;
+}
+.dialog.add_note .lable_list .lable_item:hover{
+    background: #ecf1f7;
+    border-color: #cde2ec;
+    color: #1a98d5;	
+}
+
+.dialog.add_report .cue_word{
+	line-height:40px;
+	text-align:left;
+}
+.dialog.add_report .dialog_body{
+	padding:10px;
+}
+.dialog.add_report .case_name_title{
+    padding-left: 10px;
+    margin:15px 0;
+    border-left: 3px solid #37b0e9;
+    height: 22px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight:normal;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.dialog.add_report .document_item{
+    height:24px;
+    padding:8px 0;
+    cursor:pointer;
+}
+.dialog.add_report .document_item span{
+	display:block;
+	height:24px;
+	line-height:24px;
+	float:left;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+.dialog.add_report .document_item span.bg{
+	width:24px;
+	margin-right:10px;
+	background-repeat:no-repeat;
+    background-position:0 center;
+    background-image:url("../../img/checkbox_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg.png*/;
+}
+.dialog.add_report .document_item.active{
+	color:#1e95d1;
+}
+.dialog.add_report .document_item.active span.bg{
+	background-position:-30px center;
+
+}
+
+.dialog.create_report .dialog_header{
+	padding-top:20px;
+	padding-bottom:20px;
+	margin: 0 20px;
+}
+.dialog.create_report .dialog_header .dialog_title{
+	display:block;
+	padding:0 0 0 10px;
+	color:#455666;
+	border-bottom:0;
+	border-left:3px solid #37b0e9;
+	margin-left:0px;
+	text-align:left;
+	height:20px;
+	line-height:20px;
+}
+.dialog.create_report .slider_container{
+	height:515px;
+	width:600px;
+	overflow:hidden;
+}
+.dialog.create_report .slider_container .slider_item{
+	height:515px;
+	width:600px;
+	float:left;
+}
+.dialog.create_report .dialog_body{
+	padding-bottom:0;
+}
+.dialog.create_report .report_case_container,.dialog.create_report  .stored_case_container{
+	border-bottom:1px solid #dadada;
+	padding:10px;
+}
+.dialog.create_report .report_case_container .title,.dialog.create_report  .stored_case_container .title{
+	height:22px;
+	line-height:22px;
+	border-left: 3px solid #37b0e9;
+	padding-left:10px;
+	font-weight:normal;
+}
+.dialog.create_report  .stored_case_container .title{
+	float:left;
+}
+.dialog.create_report  .stored_case_container .filter_theme{
+	height:22px;
+	float:right;
+	position:relative;
+	border-radius:5px;
+	z-index:200;
+}
+.dialog.create_report  .stored_case_container .filter_theme .label{
+	display:block;
+	floaT:left;
+	line-height:22px;
+	margin-right:10px;
+}
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_btn{
+	display:block;
+	height:22px;
+	float:left;
+	line-height:22px;
+}
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_btn span{
+	display:block;
+	max-width:120px;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+	float:left;
+	line-height:22px;
+	margin-right:5px;
+	color:#455666;
+}
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_btn i{
+	display:block;
+	font-size:18px;
+	float:left;
+	margin-top:2px;
+}
+.dialog.create_report  .stored_case_container .filter_theme .drop_menu{
+	width:250px;
+	max-height:200px;
+	border:1px solid #dadada;
+	overflow-y:auto;
+	padding:10px;
+	background:#fcfcfc;
+	position:absolute;
+	right:0;
+	top:22px;
+	z-index:300;
+	border-radius:5px;
+	display:none;
+}
+.dialog.create_report  .stored_case_container .filter_theme li{
+	padding:5px 20px 5px 5px;
+	border-bottom:1px dashed #dadada;
+}
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_item{
+	display:block;
+	line-height:30px;
+	border-radius:5px;
+	border:1px solid transparent;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    padding-left:5px;
+}
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_item.active,
+.dialog.create_report  .stored_case_container .filter_theme .filter_theme_item:hover{
+    border-color: #cde2ec;
+    background-color: #ecf1f7;
+    color: #1a98d5;
+}
+.dialog.create_report .report_case_list{
+	height:300px;
+	overflow-y:auto;
+}
+.dialog.create_report .stored_case_list{
+	clear:both;
+	height:370px;
+	overflow-y:auto;
+	padding-top:20px;
+}
+.dialog.create_report .stored_case_item{
+	height:22px;
+	cursor:pointer;
+	padding:9px 0;
+}
+.dialog.create_report .stored_case_item span{
+	float:left;
+	display:block;
+	height:22px;
+	line-height:22px;
+	margin-right:10px;
+}
+.dialog.create_report .stored_case_item .bg{
+	width:22px;
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-image:url("../../img/checkbox_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg.png*/
+}
+.dialog.create_report .stored_case_item.active .bg{
+	background-position:-30px 0;
+}
+.dialog.create_report .stored_case_item .mark{
+    width: 60px;
+    border-radius: 5px;
+    background-color: #1a98d5;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+.dialog.create_report .stored_case_item .case_name{
+    max-width:420px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.create_report .stored_case_item:hover .case_name{
+	color:#1a98d5;
+}
+.dialog.create_report .report_case_item,.dialog.create_report .report_stored_case_item{
+	padding:5px 10px;
+	border-bottom:1px dashed #aaa;
+}
+.dialog.create_report .report_case_item.al,.dialog.create_report .report_stored_case_item.al{
+	height:38px;
+}
+.dialog.create_report .report_stored_case_item .stored_mark{
+	float:left;
+	width:60px;
+	height:22px;
+	line-height:22px;
+	margin:8px 0;
+    color: #1a98d5;
+    font-size: 12px;
+    text-align: center;
+   	font-weight:normal;
+}
+.dialog.create_report .report_case_item .mark,.dialog.create_report .report_stored_case_item .mark{
+	float:left;
+	width:60px;
+	height:22px;
+	line-height:22px;
+	margin:8px 0;
+    border-radius: 5px;
+    background-color: #1a98d5;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+   	font-weight:normal;
+}
+.dialog.create_report .report_case_item .case_name,.dialog.create_report .report_stored_case_item .case_name{
+	height:38px;
+	line-height:38px;
+	padding-left:10px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size:16px;
+    float:left;
+    max-width:430px;
+}
+.dialog.create_report .report_case_item .case_name{
+	max-width:410px;
+}
+.dialog.create_report .report_stored_case_item.al .case_name{
+	max-width:360px;
+}
+.dialog.create_report .delete_report_case_btn{
+	display:block;
+	float:right;
+    height: 24px;
+    width: 24px;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #1a98d5;
+    margin:7px 0;
+}
+.dialog.create_report .report_case_item.aj ul,.dialog.create_report .report_stored_case_item.aj ul{
+	clear:both;
+}
+
+.dialog.create_report .report_case_item.aj .document_item,.dialog.create_report .report_stored_case_item.aj .document_item{
+	height:32px;
+	line-height:32px;
+	color:#1a98d5;
+	padding:0 15px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.create_report .report_case_item.aj .hint_info,.dialog.create_report .report_stored_case_item.aj .hint_info{
+	color:#aaa;
+	line-height:20px;
+	padding-left:15px;
+}
+
+.dialog.create_report .show_store_case{
+	display:block;
+	height:22px;
+	border-left: 3px solid #37b0e9;
+	margin:20px 10px;
+}
+.dialog.create_report .show_store_case span{
+	display:block;
+	height:22px;
+	line-height:22px;
+	padding-left:10px;
+	float:left;
+}
+.dialog.create_report .show_store_case i{
+	display:block;
+	font-size:18px;
+	float:right;
+	color:#1a98d5;	
+}
+
+.dialog.create_new_report .dialog_header{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.dialog.create_new_report .dialog_header .dialog_title{
+	display:block;
+	padding:0 0 0 10px;
+	color:#455666;
+	border-bottom:0;
+	border-left:3px solid #37b0e9;
+	margin-left:10px;
+	text-align:left;
+	height:20px;
+	line-height:20px;
+}
+.dialog.create_new_report .slider_container{
+	height:515px;
+	width:600px;
+	overflow:hidden;
+}
+.dialog.create_new_report .slider_container .slider_item{
+	height:515px;
+	width:600px;
+	float:left;
+}
+.dialog.create_new_report .dialog_body{
+	padding-bottom:0;
+	padding-top:10px;
+}
+.dialog.create_new_report  .title{
+	margin:5px 210px 5px 0;
+	height:20px;
+	line-height:20px;
+	border-left:3px solid #37b0e9;
+	padding-left:5px;
+	font-weight:normal;
+	font-size:14px;
+}
+.dialog.create_new_report  .title .hint_word{
+	color:#b7b7b7;
+	padding-left:5px;
+}
+.dialog.create_new_report .theme_filter{
+	width:210px;
+	height:28px;
+	float:right;
+	border:1px solid #efefef;
+	border-radius:10px;
+}
+.dialog.create_new_report .theme_filter input{
+	width:200px;
+	height:18px;
+	line-height:18px;
+	padding:5px 0 5px 10px;
+	border-radius:10px;
+	background:#f9f9f9;
+}
+.dialog.create_new_report  .report_theme_list,.dialog.create_new_report .create_new_report_case_list{
+	height:425px;
+	overflow-y:auto;
+}
+.dialog.create_new_report  .report_theme_list .report_theme_item{
+    height:16px;
+    padding:6px 10px;
+    border:1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dialog.create_new_report  .report_theme_list .report_theme_item i{
+	display:block;
+	float:left;
+	font-size:16px;
+}
+.dialog.create_new_report  .report_theme_list .report_theme_item span{
+	display:block;
+	margin-left:20px;
+	max-width:500px;
+	height:16px;
+	line-height:16px;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.create_new_report  .report_theme_list .report_theme_item:hover,
+.dialog.create_new_report  .report_theme_list .report_theme_item.active{
+    background: #ecf1f7;
+    border-color: #cde2ec;
+    color: #1a98d5;
+}
+.dialog.create_new_report .create_new_report_case_list h3{
+	display: block;
+    color: #455666;
+    border-bottom: 0;
+    border-left: 3px solid #37b0e9;
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+    margin:10px 0;
+    padding-left:10px;
+    font-sise:14px;
+    font-weight:normal;
+}
+.dialog.create_new_report .create_new_report_case_item{
+	overflow:hidden;
+	padding:10px 30px 10px 0;
+}
+.dialog.create_new_report .create_new_report_case_item .bg{
+	width:22px;
+	height:22px;
+	display:block;
+	float:left;
+	background-repeat:no-repeat;
+    background-position:0 0;
+    background-image:url("../../img/checkbox_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg.png*/;
+   	cursor:pointer;
+}
+.dialog.create_new_report .create_new_report_case_item .case_name{
+	display:block;
+	line-height:22px;
+	margin-left:30px;
+   	cursor:pointer;
+}
+.dialog.create_new_report .create_new_report_case_item.active{
+	color:#1e95d1;
+}
+.dialog.create_new_report .create_new_report_case_item.active .bg{
+    background-position:-30px 0;
+}
+
+
+
+.dialog.law_analysis .dialog_header{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.dialog.law_analysis .dialog_header .dialog_title{
+	display:block;
+	padding:0 0 0 10px;
+	color:#455666;
+	border-bottom:0;
+	border-left:3px solid #37b0e9;
+	margin-left:10px;
+	text-align:left;
+	height:20px;
+	line-height:20px;
+}
+.dialog.law_analysis .dialog_body{
+	padding-bottom:0;
+}
+.dialog.law_analysis .slider_container{
+	width:600px;
+	height:560px;
+	overflow:hidden;
+}
+.dialog.law_analysis .slider_item{
+	width:600px;
+	height:560px;
+	float:left;
+	
+}
+.dialog.law_analysis .law_list{
+	padding:10px;
+	height:480px;
+}
+.dialog.law_analysis .law_list ul{
+	height:430px;
+}
+.dialog.law_analysis .law_list .law_item{
+	height:22px;
+	padding:10px 0;
+
+}
+.dialog.law_analysis .law_list .law_item .bg{
+	width:22px;
+	height:22px;
+	display:block;
+	float:left;
+	background-repeat:no-repeat;
+    background-position:0 0;
+    background-image:url("../../img/checkbox_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/checkbox_bg.png*/;
+   	cursor:pointer;
+}
+.dialog.law_analysis .law_list .law_item .law_name{
+	display:block;
+	height:22px;
+	line-height:22px;
+	margin-left:30px;
+	margin-right:80px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+   	cursor:pointer;
+}
+.dialog.law_analysis .law_list .law_item.active{
+	color:#1e95d1;
+}
+.dialog.law_analysis .law_list .law_item.active .bg{
+    background-position:-30px 0;
+}
+.dialog.law_analysis .law_list .law_item .law_count{
+	display:block;
+	float:right;
+	height:22px;
+	line-height:22px;
+}
+
+.dialog.law_analysis .law_detail{
+	padding-top:10px;
+	height:240px;
+}
+.dialog.law_analysis .law_detail .back_to_law_list{
+	display:block;
+	height:16px;
+	line-height:16px;
+	float:left;
+	color:#37b0e9;
+	padding:10px 0;
+}
+.dialog.law_analysis .law_detail .law_name_title{
+	padding:10px 0;
+	margin:0 30px;
+	text-align:center;
+	font-size:16px;
+	font-weight:normal;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.law_analysis .law_detail .law_content{
+	line-height:24px;
+	text-indent:2em;
+	margin-top:20px;
+	height:180px;
+	overflow-y:auto;
+}
+.dialog.law_analysis .store_law_area{
+	padding-top:10px;
+	height:240px;
+}
+.dialog.law_analysis .store_law_area .title{
+	display: block;
+    padding: 0 0 0 10px;
+    color: #455666;
+    border-bottom: 0;
+    border-left: 3px solid #37b0e9;
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+}
+.dialog.law_analysis .store_law_area .form_item{
+	border-top:1px solid #dadada;
+	margin-top:10px;
+}
+
+
+.dialog.time_line .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.time_line .dialog_body{
+	padding-bottom:0;
+}
+.dialog.time_line .time_line_wrapper{
+	max-height:370px;
+	overflow-y:auto;
+	padding:10px;
+}
+.dialog.time_line .time_item{
+	padding-bottom:20px;
+	position:relative;
+}
+.dialog.time_line .time_item:after{
+	display:block;
+	content:"";
+	width:0;
+	height:100%;
+	border-left:2px solid #dcdcdc;
+	position:absolute;
+	left:8px;
+	top:0;
+	z-index:5;
+}
+.dialog.time_line .time_item.last:after{
+	display:none;
+}
+.dialog.time_line .time_item .title{
+	color: #1a98d5;
+	line-height:20px;
+	height:20px;
+	font-size:14px;
+	font-weight:normal;
+	position:relative;
+	z-index:10;
+	background:#fff url("../../img/process_node_bg.png")/*tpa=http://www.chineselaw.com/www/public/img/process_node_bg.png*/ no-repeat left center;
+	padding-left:25px;
+}
+.dialog.time_line .time_item .time{
+	height:20px;
+	line-height:20px;
+	padding-left:25px;
+}
+.dialog.time_line .time_item .content{
+	line-height:24px;
+	padding-left:25px;
+}
+.dialog.combination_search{
+	width : 660px;
+}
+
+.dialog.combination_search .dialog_header{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.dialog.combination_search .dialog_header .dialog_title{
+	display:block;
+	padding:0 0 0 10px;
+	color:#455666;
+	border-bottom:0;
+	border-left:3px solid #37b0e9;
+	margin-left:10px;
+	text-align:left;
+	height:20px;
+	line-height:20px;
+}
+.dialog.combination_search .dialog_body{
+	padding-bottom:20px;
+}
+.dialog.combination_search .combination_search_content{
+	padding-top:15px;
+}
+.dialog.combination_search .option{
+	min-height:40px;
+	padding:0 10px;
+	margin-bottom:10px;
+}
+.dialog.combination_search .option.last{
+	padding-top:20px;
+	border-top:1px dashed #dadada;
+	margin-top:20px;
+}
+.dialog.combination_search .option_label{
+	width:120px;
+	height:40px;
+	line-height:40px;
+	float:left;
+} 
+.dialog.combination_search .option.last .option_label{
+	border-left: 3px solid #37b0e9;
+	padding-left:5px;
+	height:22px;
+	line-height:22px;
+	margin:9px 0;
+	width:112px;
+	position:relative;
+
+}
+.dialog.combination_search .option.last .option_label span{
+	display:block;
+	line-height:22px;
+}
+.dialog.combination_search .option.last .option_label .caption{
+	font-size:12px;
+	position:absolute;
+	left:0;
+	top:22px;
+}
+.dialog.combination_search .option_content{
+	margin-left:125px;
+	position:relative;
+}
+.dialog.combination_search ul {
+	width : 510px;
+}
+.dialog.combination_search .level_option_item{
+	height:38px;
+	line-height:38px;
+	border-radius:5px;
+	border:1px dashed #dadada;
+	float:left;
+	margin-right:10px;
+	padding:0 20px;
+	margin-bottom:10px;
+	cursor:pointer;
+	color:#1e95d1;
+}
+.dialog.combination_search .level_option_item.required{
+	border-color:red;
+}
+.dialog.combination_search .level_option_item.active{
+	border:1px solid #cde2ec;
+	color:#1e95d1;
+	background:#ecf1f7;
+}
+.dialog.combination_search .option_content input{
+	width:100%;
+	height:18px;
+	line-height:18px;
+	padding:10px 0;
+	border-radius:10px;
+	border:1px solid #dadada;
+	text-indent:10px;
+}
+.dialog.combination_search .option_content input.required{
+	border-color:red;
+}
+.dialog.combination_search .option_content .suggest_container{
+	width:100%;
+	position:absolute;
+	left:0;
+	top:32px;
+	border-radius:0 0 10px 10px;
+	border-color:#dadada;
+}
+
+.dialog.store_judge .court_name{
+	color:#aaa;
+}
+
+.dialog.store_court .cause_name{
+	color:#aaa;
+}
+
+.dialog.get_same_type_judge .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.get_same_type_judge .dialog_body{
+	padding-bottom:20px;
+}
+.dialog.get_same_type_judge .judge_list{
+	min-height:270px;
+	color:#455666;
+}
+.dialog.get_same_type_judge .judge_list ul{
+	min-height:270px;
+	overflow:hidden;
+}
+.dialog.get_same_type_judge .judge_item{
+	float:left;
+	line-height:40px;
+	width:192px;
+	text-align:center;
+	color:#455666;
+}
+.dialog.get_same_type_judge .judge_item:hover{
+	color:#1a98d5;
+}
+.dialog.get_same_type_judge .judge_item .judge_name{
+	cursor:pointer;
+}
+
+.dialog.get_trial_video_case .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.get_trial_video_case .dialog_body{
+	padding-bottom:20px;
+}
+.dialog.get_trial_video_case .trial_video_case_list{
+	min-height:300px;
+}
+.dialog.get_trial_video_case .trial_video_case_list ul{
+	overflow:hidden;
+	min-height:250px;
+}
+.dialog.get_trial_video_case .trial_video_item{
+    float:left;
+    width:290px;
+}
+.dialog.get_trial_video_case .trial_video_item a{
+	display: block;
+    line-height: 34px;
+	font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #455666;
+    text-align:center;
+}
+.dialog.get_trial_video_case .trial_video_item a:hover{
+	color:#1a98d5;
+}
+.dialog.look_other_court .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.look_other_court .dialog_body{
+	padding-bottom:20px;
+}
+.dialog.look_other_court .court_list{
+	color:#455666;
+	min-height:300px;
+}
+.dialog.look_other_court .prev_level,.dialog.look_other_court .same_level{
+	overflow:hidden;
+}
+.dialog.look_other_court .title{
+	line-height:40px;
+	color:#1a98d5;
+	font-size:14px;
+	font-weight:normal;
+	float:left;
+	width:80px;
+}
+.dialog.look_other_court ul{
+	overflow:hidden;
+	margin-left:80px;
+}
+.dialog.look_other_court .same_level ul{
+	min-height:290px;
+}
+.dialog.look_other_court li{
+	float:left;
+	width:240px;
+	padding-right:10px;
+	height:40px;
+	line-height:40px;
+	cursor:pointer;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.look_other_court .prev_level li{
+	float:none;
+	width:auto;
+}
+
+.dialog.look_case .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.look_case .dialog_body{
+	padding-bottom:20px;
+}
+.dialog.look_case .case_list ul{
+	min-height:300px;
+}
+.dialog.look_case .case_item{
+	height:40px;
+	width:290px;
+	float:left;
+}
+.dialog.look_case .case_name{
+	display:block;
+	width:210px;
+	height:40px;
+	line-height:40px;
+	float:left;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dialog.look_case .case_name:hover{
+	color:#1a98d5;
+}
+.dialog.look_case .trial_video {
+	display:block;
+	width:80px;
+	height:40px;
+	line-height:40px;
+	float:right;
+}
+
+.dialog.show_all_charge .dialog_header{
+	padding-bottom:20px;
+}
+.dialog.show_all_charge .dialog_body{
+	padding-bottom:0;
+}
+.dialog.show_all_charge .title{
+	float:left;
+	line-height:32px;
+	height:32px;
+	font-size:14px;
+	font-weight:normal;
+	color:#1a98d5;
+}
+.dialog.show_all_charge .charge_list{
+	min-height:200px;
+	margin-left:90px;
+}
+.dialog.show_all_charge .charge_item{
+	display:block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    line-height:30px;
+    height:30px;
+    border: 1px dashed #dfdfdf;
+    border-radius: 5px;
+    padding:0 10px;
+    cursor:pointer;
+    margin-bottom:10px;
+}
+.dialog.show_all_charge .charge_item.active{
+	color: #1e95d1;
+    background-color: #ecf1f7;
+    border: 1px solid #cde2ec;
+}
+
+.dialog_footer{
+    height:40px;
+    text-align: center;
+    margin-top:10px;
+   /*  background-color:#1a98d5; */ /*影响了其他的样式所以注掉*/
+}
+.dialog_footer a{
+	font-size:16px;
+/* 	height:40px;
+	line-height:40px; */   /*这个样式影响了其他的样式*/
+	/* color:#fff; */
+}
+.dialog_footer.two_btn{
+	padding:10px 0;
+}
+.dialog_footer.one_btn .confirm_btn{
+    display:block;
+    height:40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background:#1a98d5;
+    border-radius: 0 0 10px 10px;
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -ms-transition: background .5s;
+    -o-transition: background .5s;
+    transition: background .5s;
+}
+.dialog_footer.one_btn .confirm_btn:hover{
+    background: #56afef;
+}
+.dialog_footer.two_btn a{
+	display:inline-block;
+	width:150px;
+	margin:0 10px;
+	height:40px;
+	line-height:40px;
+}
+.dialog_footer.two_btn a.confirm_btn{
+	border-radius:10px;
+	background:#1a98d5;
+	color:#fff;
+	padding:0 5px;
+}
+.dialog_footer.two_btn .confirm_btn.disabled,.dialog_footer.one_btn .confirm_btn.disabled{
+	background:#ccc;
+}
+
+/*庭审视频*/
+.dialog.all_case {
+	width : 680px;
+}
+.dialog.all_case .dialog_header .dialog_title{
+	float:left;
+    padding: 0 0 0 10px;
+    color: #455666;
+    border-bottom: 0;
+    border-left: 3px solid #37b0e9;
+    margin-left: 10px;
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+    font-weight: normal;
+    font-size:16px;	
+}
+.dialog.all_case .dialog_title {
+	border-left: 3px solid #1a98d5;
+	font-size : 16px;
+	border-bottom: none;
+}
+.dialog.all_case .dialog_header  {
+	border-bottom:none;
+}
+.dialog.all_case .theme_filter{
+	float: right;
+    position: relative;
+    padding: 0 35px 0 10px;
+    height: 30px;
+    width: 210px;
+    box-sizing : border-box;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    background-color: #f7f7f7;
+    
+}
+.dialog.all_case .theme_filter input {
+	height: 30px;
+    width: 170px;
+    line-height: 30px;
+    background-color: transparent;
+    border: none;
+}
+.dialog.all_case .filter_btn{
+	position: absolute;
+    top: 8px;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+}
+.dialog.all_case .dialog_body {
+	 padding : 15px 0px 0px 0px;
+	
+}
+
+.dialog.all_case .render_court_header {
+}
+.dialog.all_case .render_court_title {
+	float : left;
+	margin-bottom : 15px;
+ 
+}
+.dialog.all_case .render_court_title h2 {
+	color: #455666;
+	padding: 0 0 0 10px;
+    text-align: left;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: normal;
+
+}
+.dialog.all_case .nav {
+	overflow : hidden;
+    padding: 0px 10px;
+}
+.dialog.all_case .nav li {
+	float : left;
+    font-size: 14px;
+    text-align: left;
+    width : 40%
+}
+.dialog.all_case .nav_list {
+	overflow : hidden;
+	padding : 10px;
+}
+.dialog.all_case .nav_list li {
+	text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float : left;
+    line-height: 20px;
+    height: 20px;
+    padding : 10px 0px;
+}
+.dialog.all_case .nav_list #court_video{
+	width:75%;
+}
+.dialog.all_case .nav_list .ah , .dialog.all_case .nav_list .ay{
+	width : 40%;
+} 
+.dialog.all_case .nav_list .ay{
+	cursor:pointer;
+}
+
+.dialog.all_case .main-inner li.time {
+	width : 20%;
+} 
+.dialog.all_case .nav_list .live_time {
+	text-align: right;
+}
+.dialog.all_case .suggest_container {
+	width: 100%;
+    right: 0px;
+    text-align: left;
+    margin-top : -20px;
+}
+.dialog.all_case .suggest_container .suggest_item {
+	text-indent:left;
+}
+
+
+
+.dialog.all_image_text .list_name .live {
+	float:left;
+	text-align:left;
+}
+.dialog.all_image_text .list_name .live p span {
+	font-size : 14px;
+}
+.dialog.all_image_text .list_name li {
+	width : 50%;
+}
+.dialog.all_image_text .list_name {
+	margin-top : 60px;
+}
+.dialog.all_image_text .list_name p {
+	margin-bottom : 0px;
+}
+.dialog.all_image_text .videos_second_list {
+	padding: 0px 10px;
+    box-sizing: border-box;
+}
+/* .dialog.all_image_text .videos_second_list li {
+	width: 50%;
+} */
+.dialog.all_image_text .videos_second_list .ah {
+	width : 80%;
+}
+.dialog.all_image_text .videos_second_list .time {
+	width : 20%;	
+}
+.dialog.all_image_text .dialog_header p span {
+	float: left;
+    line-height: 20px;
+    font-size: 16px;
+    margin-left:5px;
+}
+.dialog.all_image_text .dialog_header .last {
+	color: #188dcd;
+}
+.dialog.all_image_text .dialog_header span:hover {
+	cursor:pointer;
+}
+.dialog.all_image_text .dialog_header .fymc_content ,.dialog.all_case  .dialog_header .fymc_content{
+	border-bottom: 1px solid #dadada;
+	overflow: hidden; 
+}
+
+/* .dialog.all_image_text .dialog_header .fymc_content p ,.dialog.all_case .dialog_header .fymc_content p{
+	overflow: hidden;
+    display: inline-block;
+    float: left;
+	
+} */
+.dialog.all_case  .fymc_content p {
+	overflow: hidden;
+	float: left;
+	margin-bottom : 20px;
+	margin-left : 5px;
+}
+.dialog.all_case  .fymc_content p .key_search {
+	color : #1a98d5;
+}
+
+.dialog.all_image_text .live span {
+	font-size : 14px;
+}
+.dialog.all_case .dialog_header {
+	padding-top : 0px;
+}
+.dialog.all_image_text .dialog_header .fymc ,.dialog.all_case .dialog_header .fymc {
+    border-left: 3px solid #37b0e9;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    height: 20px;
+    padding-left: 10px;
+    line-height: 20px;
+	margin : 20px 0px 20px 10px;
+}
+.dialog.all_image_text .dialog_header>p {
+	float: left;
+}
+.dialog.all_case .pagination {
+	margin-top : 5px;
+
+}
+/*图文直播详情页*/
+.dialog.all_live_image .dialog_body{
+	padding-left : 10px;
+	padding-right : 10px;
+	padding-bottom : 10px;
+}
+.dialog.all_live_image .dialog_header {
+	border-bottom : none ;
+}
+.dialog.all_live_image .dialog_header h2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    padding: 0 0 0 10px;
+    color: #455666;
+    border-bottom: 0;
+    border-left: 3px solid #37b0e9;
+    margin-left: 10px;
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+    font-size : 16px;
+    font-weight : normal;
+    width : 80%;
+    margin-top : 5px;
+    margin-bottom : 10px; 
+    cursor:pointer;
+	white-space: nowrap;
+
+}
+
+
+.dialog.all_live_image .dialog_body .images_list {
+	padding-top : 20px;
+	border-top: 1px solid #dadada;
+}
+.dialog.all_live_image .dialog_body .images_list li {
+	float : left;
+	width:30%;
+	height:100%;
+}
+.dialog.all_live_image .dialog_body .images_list .center_image {
+	width : 40%;
+}
+.dialog.all_live_image .dialog_body .images_list .center_image div {
+	width : 75%;
+	margin : 0 auto;
+}
+.dialog.all_live_image .dialog_body img {
+	width : 180px;
+	height : 90px;
+	border-radius: 5px;
+	border: 1px solid #dfdfdf;
+	box-shadow: 0 0 18px #dcdcdc;
+	cursor : pointer;
+}
+.dialog.all_live_image .dialog_body .images_list li p{
+	text-align: center;
+	margin: 10px;
+	line-height:20px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.dialog.all_live_image .look_large_images {
+	display : none;
+	min-height : 300px;
+}
+.dialog.all_live_image .look_large_images img {
+	border: 1px solid #dfdfdf;
+	box-shadow: 0 0 18px #dcdcdc;
+	border-radius: 5px;
+	cursor : auto;
+}
+.dialog.all_live_image .control_button {
+	float : right;
+	position : absoulte;
+	margin : 16px 0px 20px 0px;
+	display: none;
+}
+.dialog.all_live_image .control_button .confirm_pre_page {
+	height: 28px;
+    line-height: 28px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    margin: 0 5px;
+    padding: 0 10px;
+    background: #fff;
+    cursor : pointer;
+}
+.dialog.all_live_image .control_button .confirm_next_page {
+	height: 28px;
+    line-height: 28px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    margin: 0 5px;
+    padding: 0 10px;
+    background: #fff;
+    cursor : pointer;
+}
+.dialog.all_live_image .control_button input.active {
+	background: #188ecf;
+    color: #fff;
+}
+.dialog.all_live_image .control_button .confirm_close_live {
+	height: 28px;
+    line-height: 28px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    margin: 0 5px;
+    padding: 0 10px;
+    background: #fff;
+    cursor : pointer;
+}
+
+
+
+.dialog.all_live_image .dialog_body .images_list ul {
+	overflow :hidden;
+}
+.dialog.all_live_image .dialog_body .images_list .right_image {
+	margin-right : 0px;
+}
+.dialog.lx img {
+	width : 100%;
+	margin : 0 auto;
+}
+.dialog.lx .dialog_header{
+	border : none;
+	/* background-color:#1a98d5;
+	color:#fff; */
+}
+/*量刑*/
+.dialog.store_judge_case .dialog_header{
+	border-bottom: none;
+	
+}
+/*企业风险分析*/
+.dialog.store_company .no_label_wrapper {
+	width :80%;
+	text-overflow : ellipsis;
+	white-space: nowrap;
+	overflow : hidden;
+}
+/*免费体验*/
+#confirm_free_trial .dialog_title{
+	display: block;
+    padding: 0 0 0 10px;
+    color: #455666;
+    border-bottom: 0;
+    border-left: 3px solid #37b0e9;
+    margin-left: 0px;
+    text-align: left;
+    height: 20px;
+	line-height: 20px;
+	font-size : 16px;
+}
+#confirm_free_trial .dialog_body {
+	padding: 10px 10px 0px 10px;
+}
+#confirm_free_trial .hint {
+	margin : 10px 10px 20px;
+	border-bottom : 1px solid #dadada;
+	padding-bottom: 20px;
+}
+#confirm_free_trial .hint .hint_time {
+	font-size:16px;
+	color :#3C4C5B;
+	height : 20px;
+	line-height : 20px;
+}
+#confirm_free_trial .hint .free_button {
+	background: #188ECF;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 12px 22px;
+	margin-left: 40px;
+	cursor:pointer;
+}
+#confirm_free_trial .hint .confirm_free_button {
+    background: #188ECF;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 12px 22px;
+	margin-left: 30px;
+	cursor:pointer;
+}
+#confirm_free_trial .price {
+	border-bottom: 1px solid #dadada; 
+	margin: 30px 10px 30px;
+}
+#confirm_free_trial .price li {
+	margin-bottom : 30px;
+}
+#confirm_free_trial .price li .blue {
+	color : #188ECF;
+	font-size : 14px;
+	margin-right : 30px;
+	width : 56px;
+	display: inline-block;
+}
+#confirm_free_trial .price li .blue.last_key {
+	vertical-align: 8px;
+}
+#confirm_free_trial .price li .key{
+	float : left;
+	line-height: 36px;
+}
+
+
+#confirm_free_trial .price .expire_time {
+	margin-bottom: 20px;
+}
+#confirm_free_trial .price li>.last {
+	color : #E47476;
+	font-size : 20px;
+}
+#confirm_free_trial .price li>span>.big_price{
+	font-size : 40px;
+}
+#confirm_free_trial .price .actual_payment {
+	margin-bottom : 25px;
+}
+#confirm_free_trial .pattern_payment {
+	height : 40px;
+	margin-bottom : 40px;
+}
+#confirm_free_trial .pattern_payment .float_elem {
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	cursor : pointer;
+}
+#confirm_free_trial .pattern_payment>span {
+	color: #188ECF;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+#confirm_free_trial .pattern_payment .mode {
+	border-radius:5px;
+	border:1px dashed  #BCBCBC;
+		
+}
+#confirm_free_trial .pattern_payment .mode img {
+	max-width : 22px;
+}
+
+#confirm_free_trial .pattern_payment .float_elem>a {
+	position: relative;
+	top : 6px;
+}
+#confirm_free_trial .pattern_payment>span img {
+	max-width : 100%;
+	max-height : 100%;
+}
+#confirm_free_trial .pattern_payment .mode {
+	padding : 0px 10px;
+	margin-right : 30px;
+	cursor : pointer;
+	width: 84px;
+    text-align: center;
+}
+#confirm_free_trial .pattern_payment .mode.active{
+	border:1px solid #188ECF;
+}
+#confirm_free_trial .pattern_payment .mode.active {
+	color : #188ECF;
+}
+#confirm_free_trial .zf_button {
+	height : 50px;
+
+}
+#confirm_free_trial .zf_button .confirm_btn {
+	height : 50px;
+	line-height: 50px;
+}
+#confirm_free_trial .commodity {
+	display: inline-block;
+}
+#confirm_free_trial .commodity_describe {
+    color: #AAAAAA;
+    cursor: pointer;
+    box-sizing: border-box;
+    float: left;
+}
+#confirm_free_trial .commodity_describe p {
+    line-height: 34px;
+	height: 16px;
+	color : #178DCE;
+	font-size: 12px;
+}
+
+#confirm_free_trial .confirm_kind {
+    font-size: 14px;
+    padding: 9px 20px;
+    border: 1px dashed #BCBCBC;
+    border-radius: 5px;
+    margin-right: 30px;
+    cursor: pointer;
+    position: relative;
+    width: 110px;
+    float: left;
+    box-sizing: border-box;
+}
+#confirm_free_trial .lxfx {
+	text-align: center;
+}
+#confirm_free_trial .flfgxq {
+	text-align: center;
+}
+#confirm_free_trial .qyfxfx {
+	text-align: center;
+}
+#confirm_free_trial .jsbg {
+	text-align: center;
+}
+
+#confirm_free_trial .vip.active:after{
+	content: '荐';
+    background-color: #188ECF;
+    color: #fff;
+    position: absolute;
+    border-radius: 0px 4px 4px 0px;
+    font-size: 12px;
+    padding: 10px 4px;
+    top: 0px;
+    right: 0px;
+}
+#confirm_free_trial .vip:after {
+	content: '荐';
+    background-color: #AAA;
+    color: #fff;
+    position: absolute;
+    border-radius: 0px 4px 4px 0px;
+    font-size: 12px;
+    padding: 11px 4px;
+    top: -1px;
+    right: -1px;
+}
+#confirm_free_trial .confirm_kind.active {
+	border: 1px solid #188ECF;
+	color : #188ECF;
+}
+#confirm_free_trial .learn_more {
+	cursor : pointer;
+}
+#confirm_free_trial .new_hint {
+	margin : 20px 10px 30px;
+	font-size:16px;
+	color : #3C4C5B;
+}
+#confirm_free_trial .pay {
+    font-size: 14px;
+    padding-bottom: 60px;
+    margin-left: 10px;
+    border-bottom: 1px solid #F1F3FA;
+}
+#confirm_free_trial .pay span {
+	margin-right : 10px;
+	border : none;
+}
+#confirm_free_trial  .pay_succeed{
+	font-size : 16px;
+	padding: 9px 27px;
+	background : #188ECF;
+	border-radius: 5px;
+	margin-right : 40px;
+	color: #fff;
+	cursor : pointer;
+}
+#confirm_free_trial  .confirm_consumption{
+	font-size : 16px;
+	padding: 9px 27px;
+	background : #188ECF;
+	border-radius: 5px;
+	margin-right : 40px;
+	color: #fff;
+	cursor : pointer;
+}
+#confirm_free_trial  .payment_failure {
+	font-size : 16px;
+	color : #AAAAAA;
+	cursor : pointer;
+}
+#confirm_free_trial .free_trial_item {
+	position: relative;
+	left : 0px;
+	top: 0;
+    left: 0px;
+    transition: 1s;
+    opacity: 1;
+}
+#confirm_free_trial .free_trial_container {
+	position: relative;
+	overflow: hidden;
+}
+#confirm_free_trial .free_trial_item.animate {
+	position: absolute;
+    top: 0;
+    left: -600px;
+    transition: 1s;
+    opacity: 0;
+    z-index: 0;
+}
+#confirm_free_trial .free_trial_item.active {
+	left : 600px;
+	opacity: 0;
+}
+#confirm_free_trial .free_trial_item.animate_2 {
+    top: 0;
+    left: 600px;
+    transition: 1s;
+    opacity: 0;
+	z-index: 0;
+	display: none;
+}
+
+#confirm_free_trial .free_trial_item .dialog_header {
+	margin : 0 20px;
+}
+#confirm_free_trial .dialog_trial_footer {
+	text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#confirm_free_trial .use_tips {
+	margin: 20px 0px 60px 10px;
+}
+.zk .dialog_title {
+	padding-bottom : 20px;
+}
+#confirm_free_trial .dialog_header.zk {
+	padding-bottom : 20px;
+}

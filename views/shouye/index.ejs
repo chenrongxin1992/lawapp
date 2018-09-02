@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" >
+    <meta name="description" content="lawapp test">
+    <meta name="keywords" content="lawapp intelegent">
+        <meta http-equiv="Expires" CONTENT="0">
+        <meta http-equiv="Cache-Control" CONTENT="no-cache">
+        <meta http-equiv="Pragma" CONTENT="no-cache">
+    <title>法律应用</title>
+
+    <!--此处变量是固定的，不需要动  -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script>
+        var user_name="\u6E38\u5BA2",//用户名
+            user_id="guests_116.7.245.181",//用户id
+            category= 0,//用户类型
+            expireTime=null,//vip过期时间
+            user_photo_src="123.jpg",//用户头像的src
+            user_status="guests",//用户状态
+            user_manage_url="https:\/\/passport.legalmind.cn\/\/userCenter\/getBasicInfo",//我的智库url
+            case_type_list=[{"cDmjp":"xs","nDm":1,"cMc":"\u5211\u4E8B","nXssx":1,"cCcmc":"\u5211\u4E8B\u6848\u4EF6","cJb":"1111","nYx":1,"nKwh":2},{"cDmjp":"xz","nDm":6,"cMc":"\u884C\u653F","nXssx":6,"cCcmc":"\u884C\u653F\u6848\u4EF6","cJb":"1111","nYx":1,"nKwh":2},{"cDmjp":"mss","nDm":2,"cMc":"\u6C11\u5546\u4E8B","nXssx":2,"cCcmc":"\u6C11\u4E8B\u6848\u4EF6","cJb":"1111","nYx":1,"nKwh":2}],//案件类型
+            cur_case_type=1,//当前案件类别代号
+            lawyerUrl="https:\/\/legalmind.cn\/lawyer",
+            reg_url="https:\/\/passport.legalmind.cn\/\/ssologin?originUrl=http:\/\/chineselaw.com:80?nDm=1\u0026loginPath=login\/index\u0026appId=ajypfx",//注册的url
+            bswz="3",//当前的部署位置
+            bjsj=null;
+        var showRetrieval = true;  //企业调查是否隐藏
+        var showFgfx = true;
+        var showLsls = true;
+        var showInnocent = false;
+        var userLevel = [{"category":0,"value":"\u514D\u8D39\u7248"},{"category":1,"value":"vip"},{"category":2,"value":"\u9AD8\u7EA7\u7248"},{"category":3,"value":"\u56E2\u961F\u7248"},{"category":4,"value":"\u6CD5\u68C0\u7248"}];
+        var orderUrl = "https:\/\/passport.legalmind.cn\/\/order\/list";
+        //基础路径
+        var base_path = "http:\/\/qiandao.szu.edu.cn:81/lawapp";
+        //var base_path = "http:\/\/chineselaw.com:80";
+        var wxcallback =window.location.href;
+    </script>
+    <!--end  -->
+    <!--初始化项目代号  -->
+    <script>
+        //初始化项目，此处必须有，案例研判->alyp 法律法规->flfg 裁判观点->cpgd
+        var INIT_PROJECT="alyp";
+        var login_callback="";
+        var INIT_List = 'index';
+    </script>
+    <!--end  -->
+    <!--此处获取试图数据,变量名由个人控制  -->
+    <script>
+        var init_searchType="";
+        var init_includeJcy="";
+    </script>
+    <!--end  -->
+    <!--引入css文件，不需要的不要引入  -->
+    <!--重置css  -->
+    <link href="/lawapp/stylesheets/public/reset.css" rel="stylesheet">
+    <!--字体  -->
+    <link href="/lawapp/fonts/fonts.css" rel="stylesheet">
+
+    <!--组件  -->
+    <!--头部搜索 必须引入  -->
+    <link href="/lawapp/stylesheets/components/header_component.css" rel="stylesheet">
+    <!--底部  -->
+    <link href="/lawapp/stylesheets/components/footer_component.css" rel="stylesheet">
+    <!--弹出框 必须引入  -->
+    <link href="/lawapp/stylesheets/components/dialog.css" rel="stylesheet">
+    <!--float_tool_bar  -->
+    <link href="/lawapp/stylesheets/public/float_tool_bar.css" rel="stylesheet">
+    <!--插件  -->
+    <!--分页  -->
+    <link href="/lawapp/stylesheets/plugin/pagination.css" rel="stylesheet">
+
+    <!--帮助函数  -->
+    <link href="/lawapp/stylesheets/utils/utils.css" rel="stylesheet">
+
+    <!-- 本页面的css文件  -->
+    <link href="/lawapp/stylesheets/index/css/index.css" rel="stylesheet">
+    <!-- 登录框使用 的css-->
+    <!-- <link href="www/login/css/login.css" rel="stylesheet"/> -->
+    <!--end  -->
+    <!--引入的js文件，不需要的不要引入  -->
+    <!--plugin  -->
+    <!--jquery  必须引入-->
+    <script type="text/javascript" src="/lawapp/javascripts/plugin/jquery-1.11.3.js"></script>
+    <!--cookie  必须引入-->
+    <script type="text/javascript" src="/lawapp/javascripts/public/jquery.cookie.js"></script>
+    <!--自定义滚动条 必须引入  -->
+    <script type="text/javascript" src="/lawapp/javascripts/plugin/xb_scroll.js"></script>
+    <!--分页  -->
+    <script type="text/javascript" src="/lawapp/javascripts/plugin/pagination.js"></script>
+
+    <!-- 登录框使用 -->
+    <!-- <script type="text/javascript" src="https://g.alicdn.com/sd/ncpc/nc.js?t=1503366313816"></script>
+    <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="www/login/js/common.js"></script> -->
+
+    <!--弹出框  必须引入-->
+    <script type="text/javascript" src="/lawapp/javascripts/components/base64.js"></script>
+    <script type="text/javascript" src="/lawapp/javascripts/components/dialog.js"></script>
+    <!--帮助函数  -->
+    <script type="text/javascript" src="/lawapp/javascripts/utils/utils.js"></script>
+    <style type="text/css">
+        .dialog_back_drop{
+            display: none;
+        }
+    </style>
+    <!--统计  -->
+    <!-- <script src="/lawapp/javascripts/public/bdtjdm.js"></script> -->
+    <!--end  -->
+</head>
+<body>
+<div class="layout">
+    <!-- <div class="layout_header" id="layout_header">
+        <div class="container">
+            <h1 class="header_title">智库，洞察法律之美</h1>
+            <div class="header_nav"> -->
+                
+                <!-- <a href="javascript:void(0)" class="a_btn" title="此处的a标签为测试用，后台测试可更改这里">用户手册下载</a> -->
+                <!--此处的a标签为测试用，后台测试可更改这里-->
+                <!-- <div class = "pricing year_item" th:if="${application.bswz}==3"><img th:src = "@{www/public/img/znq.png}"/></div> -->
+             <!--    <div class = "pricing pricing_item">产品定价</div>
+                <div class="user_container">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="layout_body">
+        <div class="body_bg_container">
+            <div class="container">
+                <div class="logo_container">
+                    <img src="/lawapp/stylesheets/index/img/logo.png" alt="">
+                </div>
+                <div class="search_container" id="search_container">
+                    <div class="search_project_list">
+                        <ul class="clearfix">
+                            <li class="search_project" project_code="alyp"><span>案例研判</span></li>
+                            <!-- <li class="search_project" project_code="flfg"><span>法律法规</span></li>
+                            <li class="search_project" project_code="cpgd"><span>裁判观点</span></li>
+                            <li class="search_project" id="lslsIndexCheck" project_code="lsls"><span>律师律所</span><div>new</div></li>
+                            <li class="search_project" project_code="qyfxfx">
+                                <div class="qyfxfx_project">
+                                    <span style="line-height:22px;">企业调查</span>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="search_inner">
+                        <div class="search_btn_wrapper">
+                            <input type="button" value="检索分析" class="search_btn">
+                            <!-- <a href="javascript:void(0)" class="combination_search_btn">组合检索</a> -->
+                        </div>
+                        <div class="search_area">
+                            <div class="case_types_container">
+
+                            </div>
+                            <div class="search_type_container">
+                                <a href="javascript:void(0)" class="current_flfg_query_type drop_btn">
+                                    <span>标题</span>
+                                    <i class="icon-drop-down"></i>
+                                </a>
+                                <ul class="search_type_list drop_menu">
+                                    <li>
+                                        <a class="flfg_query_type" href="javascript:void(0)">标题</a>
+                                    </li>
+                                    <li class="last">
+                                        <a class="flfg_query_type" href="javascript:void(0)">全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                             <div class="company_type_container">
+                                <a href="javascript:void(0)" class="current_qyfxfx_query_type drop_btn"><span>全部</span><i class="icon-drop-down"></i></a>
+                                <ul class="search_type_list drop_menu">
+                                    <li><a class="company_query_type" href="javascript:void(0)">全部</a></li>
+                                    <li><a class="company_query_type" href="javascript:void(0)">公司名称</a></li>
+                                    <li><a class="company_query_type" href="javascript:void(0)">核心成员</a></li>
+                                    <li class = "last company_query_type"><a class="company_query_type" href="javascript:void(0)">法定代表人</a></li>
+                                </ul>
+                            </div>
+                            <div class="lsls_type_container">
+                                    <a href="javascript:void(0)" class="current_lsls_query_type drop_btn">
+                                        <span>律所</span><i class="icon-drop-down"></i>
+                                    </a>
+                                    <ul class="search_type_list drop_menu">
+                                        <li><a class="lsls_query_type" href="javascript:void(0)">律所</a></li>
+                                        <li class="last"><a class="lsls_query_type" href="javascript:void(0)">律师</a></li>
+                                    </ul>
+                                </div>
+                            <div class="search_input_wrapper">
+                                <input type="text" class="search_input" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case_count">
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+       <!--  <div class="module_show_area">
+            <div class="container">
+                <div class="new_law_module module_item" id="new_law_module">
+                    <h2 class="title">新法速递</h2>
+                    <div class="law_status_tabs module_tabs">
+                        <a href="javascript:void(0)" type="Issue" class="law_status_tabbar module_tabbar">30日内发布</a>
+                        <a href="javascript:void(0)" type="Implement" class="law_status_tabbar module_tabbar">30日内生效</a>
+                    </div>
+                    <div class="new_law_info module_info"></div>
+                </div>
+                <div class="court_module module_item" id="court_module">
+                    <h2 class="title">裁判观点</h2>
+                    <div class="hot_court_tabs module_tabs">
+                        <a href="javascript:void(0)" type="Issue" class="hot_court_tabbar module_tabbar">热门法院</a>
+                        <a href="javascript:void(0)" type="Implement" class="hot_search_court_tabbar module_tabbar">热搜法院</a>
+                        <a href="javascript:void(0)" type="Implement" class="court_video module_tabbar">庭审视频</a>
+                        <a href="javascript:void(0)" type="Implement" class="image_text_live module_tabbar">图文直播</a>
+                        <a href="javascript:void(0)" type="Implement" class="text_articles module_tabbar">文章观点</a>
+                    </div>
+                    <div class="court_info module_info"></div>
+                </div>
+                <div class="new_law_module module_item">
+                    <h2 class="title">关于智库</h2>
+                    <div class="about_module module_info">
+                        <p>元典智库是一款面向法律人提供的基于元典睿核平台的统一法律知识检索、案例研判和知识管理平台。
+                            元典智库目前包含案例研判、法律法规、裁判观点三个版块，各部分相互独立，但数据关联。满足法律人各个场景下的检索需求。
+                            元典智库提供专业化的知识管理和个性化推荐服务，为用户提供一站式、一体化的智能办案体验。 元典智库提供PC
+                            &微信小程序版多终端应用，云端同步用户数据，多场景检索互相支持，满足用户深度检索需求。
+                            元典智库实现法律知识检索相关功能，基于扎实可靠的法律知识图谱，辅助用户高效完成检索。</p>
+                        <p>智库亮点：海量数据关联整合、检索方式高阶多元；案件信息高度整合、深度研判全景可视；知识管理高效便捷、PC&手机灵活方便。</p>
+                    </div>
+                </div>
+            </div>
+            </div> -->
+
+        </div>
+</div>
+<!-- <div class="float_tool_bar" id="float_tool_bar" >
+        <div class="tool_btn_group">
+        </div>
+        <div  class="tool_item to_lspt">
+            <a  target="_blank" class="tool_btn ">
+               <img src="www/index/img/lspt.png" class = "lspt">
+                <span>律师平台</span>
+            </a>
+        </div>
+        <div class="tool_item to_userAction">
+            <a  target="_blank"  class="tool_btn ">
+               <img src="www/index/img/userAction1.png" class = "userAction">
+                <span>用户指南</span>
+            </a>
+            <span class="count">0</span>
+        </div>
+        <div class="tool_item to_zkld">
+            <a target="_blank"  class="tool_btn ">
+               <img src="www/index/img/zkld.png" class = "zkld">
+                <span>智库亮点</span>
+            </a>
+        </div>
+        <div class="tool_item to_top_tool">
+                     <a href="javascript:;" class="tool_btn to_top_btn">
+                         <i class="icon-back-top"></i>
+                         <span>回到顶部</span>
+                     </a>
+                 </div>
+        </div> -->
+<div class="layout_footer" id="layout_footer">
+     <!--  <div class="nav_container">
+       <div class="footer_container container"> 
+        <div class="footer_logo_container">
+         <img src="www/public/img/footer_logo.png" /> 
+         <p class="caption">北京华宇元典信息服务有限公司</p>
+         
+        </div> 
+        <div class="nav_list"> 
+         <div class="nav_list_item first"> 
+          <h3 class="title">文档</h3> 
+          <ul> 
+           <li><a target="_blank" href="/zkHighlights">智库亮点</a></li> 
+           <li><a target="_blank" href="/instructions">操作指南</a></li> 
+           <li><a target="_blank" href="http:/www.chineselaw.com/map">网站地图</a></li> 
+          </ul> 
+         </div> 
+         <div class="nav_list_item"> 
+          <h3 class="title">相关链接</h3> 
+          <ul> 
+           <li><a href="http:/www.ailaw.com.cn" target="_blank">元典官网</a></li>
+            <li><a href="http:/www.legalmind.cn" target="_blank">元典律师工作平台</a></li>  
+          </ul> 
+         </div> 
+         <div class="nav_list_item"> 
+          <h3 class="title">联系我们</h3> 
+          <ul> 
+           <li><span>微信：yuandianserver</span></li> 
+           <li><span>邮编：100089</span></li> 
+           <li><span>电话：010-59826200</span></li>
+           <li><span>邮箱：yuandianzonghe@thunisoft.com</span></li> 
+          </ul> 
+         </div> 
+         <div class = "nav_list_item">
+         <img class="two_code" src="www/public/img/qy_code.png">
+         <p class="small_procedure">元典智库小程序</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> -->
+     <div class="company_info">
+         <span>©2018</span>
+         <span id="icp" style="padding-right:10px;">计算机与软件学院</span>
+         <!--新加的-->
+         
+     </div>
+         
+    </div>
+<input type="hidden" id="refreshed" value="no">
+
+
+<!--头部搜索  -->
+<script type="text/javascript" src="/lawapp/javascripts/components/header_component.js"></script>
+<!--底部  -->
+<script type="text/javascript" src="/lawapp/javascripts/components/footer_component.js"></script>
+<script type="text/javascript" src="/lawapp/javascripts/public/to_top.js"></script>
+<!--本页面js  -->
+<script type="text/javascript" src="/lawapp/javascripts/index/index.js"></script>
+</body>
+</html>

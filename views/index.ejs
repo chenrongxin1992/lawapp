@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>法律应用</title>
+  <link rel="stylesheet" href="/lawapp/stylesheets/layui.css">
+  <style type="text/css">
+      .header{
+            background-color: rgba(22,22,22,0.5);
+            height: 50px;
+            margin: 0 auto;
+            z-index: 1000;
+      }
+      .logo{
+        display: inline-block;
+        line-height: 50px;
+        margin-left: 30px;
+        float: left;
+      }
+      .description{
+        display: inline-block;
+        line-height: 50px;
+        margin-left: 30px;
+        float: left;
+      }
+      .footer{
+            height: 54px;
+            line-height: 54px;
+            text-align: center;
+            background: #444444;
+            color: #cbcbcb;
+      }
+      .tabcontain{
+        padding-top: 200px;
+        margin: 0 auto;
+        max-width: 700px;
+        min-height: 500px
+      }
+      .type1{
+        width: 500px!important;
+      }
+      .layui-tab-title{
+        border-bottom-style: none!important;
+      }
+  </style>
+</head>
+<body>
+ 
+<!-- 你的HTML代码 -->
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-12">
+                <header class="header">
+                <div class="logo">
+                    <img src="/lawapp/images/logo.png">
+                </div>
+                <div class="description">
+                    法律应用
+                </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-12">
+                <div class="layui-tab layui-tab-brief tabcontain">
+                  <ul class="layui-tab-title">
+                    <li class="layui-this">类型1</li>
+                    <li>类型2</li>
+                    <li>类型3</li>
+                    <li>类型4</li>
+                    <li>类型5</li>
+                  </ul>
+                  <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form" action="" onsubmit="return false;" id="form1">
+                            <div class="layui-form-item">
+                              <div class="layui-inline">
+                                <!-- <div class="layui-input-inline">
+                                    <select name="catname" id="catname" lay-filter="catname">
+                                        <option value="">全部模块</option>
+                                        <option value='1'>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="layui-input-inline type1">
+                                  <input type="text" class="layui-input" name="keywords1" id="keywords1" autocomplete="off" lay-verify="keywords1" placeholder="请输入与类型1相关的关键字">
+                                </div>
+                                <button class="layui-btn" lay-submit="" lay-filter="search1" id="btn1">搜索</button>
+                              </div>
+                            </div>  
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="" onsubmit="return false;" id="form2">
+                            <div class="layui-form-item">
+                              <div class="layui-inline">
+                                <!-- <div class="layui-input-inline">
+                                    <select name="catname" id="catname" lay-filter="catname">
+                                        <option value="">全部模块</option>
+                                        <option value='1'>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="layui-input-inline type1">
+                                  <input type="text" class="layui-input" name="keywords2" id="keywords2" autocomplete="off" placeholder="请输入与类型2相关的关键字">
+                                </div>
+                                <button class="layui-btn" lay-submit="" lay-filter="search2" id="btn2">搜索</button>
+                              </div>
+                            </div>  
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="" onsubmit="return false;" id="form3">
+                            <div class="layui-form-item">
+                              <div class="layui-inline">
+                                <!-- <div class="layui-input-inline">
+                                    <select name="catname" id="catname" lay-filter="catname">
+                                        <option value="">全部模块</option>
+                                        <option value='1'>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="layui-input-inline type1">
+                                  <input type="text" class="layui-input" name="keywords3" id="keywords3" autocomplete="off" placeholder="请输入与类型3相关的关键字">
+                                </div>
+                                <button class="layui-btn" lay-submit="" lay-filter="search3" id="btn3">搜索</button>
+                              </div>
+                            </div>  
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="" onsubmit="return false;" id="form4">
+                            <div class="layui-form-item">
+                              <div class="layui-inline">
+                                <!-- <div class="layui-input-inline">
+                                    <select name="catname" id="catname" lay-filter="catname">
+                                        <option value="">全部模块</option>
+                                        <option value='1'>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="layui-input-inline type1">
+                                  <input type="text" class="layui-input" name="keywords4" id="keywords4" autocomplete="off" placeholder="请输入与类型4相关的关键字">
+                                </div>
+                                <button class="layui-btn" lay-submit="" lay-filter="search4" id="btn4">搜索</button>
+                              </div>
+                            </div>  
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form class="layui-form" action="" onsubmit="return false;" id="form5">
+                           <div class="layui-form-item">
+                              <div class="layui-inline">
+                                <!-- <div class="layui-input-inline">
+                                    <select name="catname" id="catname" lay-filter="catname">
+                                        <option value="">全部模块</option>
+                                        <option value='1'>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="layui-input-inline type1">
+                                  <input type="text" class="layui-input" name="keywords5" id="keywords5" autocomplete="off" placeholder="请输入与类型5相关的关键字">
+                                </div>
+                                <button class="layui-btn" lay-submit="" lay-filter="search5" id="btn5">搜索</button>
+                              </div>
+                            </div>  
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-row">
+                <footer class="footer">
+                    <span>©2018</span>
+                    <span id="icp" style="padding-right:10px;">计算机与软件学院</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+ 
+<script src="/lawapp/javascripts/layui.all.js"></script>
+<script>
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form','element'], function(){
+      var layer = layui.layer
+      ,form = layui.form
+      ,element = layui.element;
+      
+      form.verify({
+          keywords1: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          }
+
+        }); 
+      form.on('submit(search1)',function(data){
+          console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+          console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+          console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+          return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+      })
+      //layer.msg('Hello World');
+    });
+</script> 
+
+</body>
+</html>
