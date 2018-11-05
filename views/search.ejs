@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>法律应用</title>
+  <link rel="stylesheet" href="/lawapp/stylesheets/layui.css">
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="/lawapp/stylesheets/bootstrap.min.css">
+  <style type="text/css">
+      .header{
+            background-color: rgba(22,22,22,0.5);
+            height: 50px;
+            margin: 0 auto;
+            z-index: 1000;
+      }
+      .logo{
+        display: inline-block;
+        line-height: 50px;
+        margin-left: 30px;
+        float: left;
+      }
+      .description{
+        display: inline-block;
+        line-height: 50px;
+        margin-left: 30px;
+        float: left;
+      }
+      .footer{
+            height: 54px;
+            line-height: 54px;
+            text-align: center;
+            background: #444444;
+            color: #cbcbcb;
+      }
+      .my-input-group-btn{
+        height: 50px;
+      }
+      .my-input-group{
+        max-width: 500px;
+        padding-left: 50px;
+      }
+      .my-input{
+        margin-top: 8px;
+      }
+      .result-filter{
+        background: #FFFFFF;
+        box-shadow: 0 0 6px 0 #DEDEDE;
+        font-size: 16px;
+        color: #333333;
+        padding: 15px 20px;
+        margin: 25px auto;
+        height: 54px;
+      }
+      .result-filter-a{
+        padding: 0 0!important;
+      }
+      .my-nav-pills{
+        float: left;
+        width: 120px;
+      }
+      .question-card {
+        margin-top: 20px;
+        padding: 20px;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 0 6px 0 #DEDEDE;
+      }
+      .question-card .tag-area {
+          position: absolute;
+          top: 0;
+          right: 20px;
+      }
+      .question-card .tag-area .tag {
+        display: inline-block;
+        background: rgba(54,158,219,0.1);
+        font-size: 14px;
+        color: #1274AC;
+        padding: 7px 5px;
+        margin-left: 5px;
+      }
+      .question-card .questioner .info-item {
+          padding-right: 5px;
+      }
+      .question-card .description1 {
+          font-size: 18px;
+          letter-spacing: 0;
+          line-height: 28px;
+          margin-top: 10px;
+          font-weight: normal;
+      }
+      .question-card .action-area .action-item {
+          cursor: pointer;
+          margin-right: 20px;
+      }
+  </style>
+</head>
+<body>
+ 
+<!-- 你的HTML代码 -->
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-12">
+                <header class="header">
+                <div class="logo">
+                    <img src="/lawapp/images/logo.png">
+                </div>
+
+                <div class="input-group my-input-group">
+                  <div class="input-group-btn my-input-group-btn">
+                      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="searchtypebtn">
+                          类型1<span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" onclick="searchtype($(this).text())">类型2</a></li>
+                          <li><a href="#" onclick="searchtype($(this).text())">类型3</a></li>
+                          <li><a href="#" onclick="searchtype($(this).text())">类型4</a></li>
+                          <li><a href="#" onclick="searchtype($(this).text())">类型5</a></li>
+                      </ul>
+                  </div>
+                  <input type="text" class="form-control my-input">
+                  <span class="input-group-btn">
+                    <input type="submit" class="btn btn-default" value="查询" />
+                  </span>
+                </div>
+
+                </header>
+            </div>
+        </div>
+
+        <div class="layui-row">
+          <div class="layui-12">
+            <div class="result-filter">
+              <ul class="nav nav-pills my-nav-pills">
+                <li class="dropdown all-camera-dropdown">
+                  <a class="dropdown-toggle result-filter-a" data-toggle="dropdown" href="#" id="questioncity">
+                    全部地区
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li data-filter-camera-type="all"><a data-toggle="tab" href="#" onclick="questioncity($(this).text())">北京市</a></li>
+                    <li data-filter-camera-type="all"><a data-toggle="tab" href="#" onclick="questioncity($(this).text())">全部地区</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav nav-pills my-nav-pills">
+                <li class="dropdown all-camera-dropdown">
+                  <a class="dropdown-toggle result-filter-a" data-toggle="dropdown" href="#" id="questiontype">
+                    全部类型
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li data-filter-camera-type="all"><a data-toggle="tab" href="#" value="0" onclick="questiontype($(this).text())">专家号</a></li>
+                    <li data-filter-camera-type="Alpha"><a data-toggle="tab" href="#" value="1" onclick="questiontype($(this).text())">快问快答</a></li>
+                    <li data-filter-camera-type="Zed"><a data-toggle="tab" href="#" value="2" onclick="questiontype($(this).text())">全部类型</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav nav-pills my-nav-pills">
+                <li class="dropdown all-camera-dropdown">
+                  <a class="dropdown-toggle result-filter-a" data-toggle="dropdown" href="#" id="questionstate">
+                    全部状态
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li data-filter-camera-type="all"><a data-toggle="tab" href="#" value='0' onclick="questionstate($(this).text())">待回答</a></li>
+                    <li data-filter-camera-type="Alpha"><a data-toggle="tab" href="#" value='2' onclick="questionstate($(this).text())">已采纳</a></li>
+                    <li data-filter-camera-type="Zed"><a data-toggle="tab" href="#" value='1' onclick="questionstate($(this).text())">已结束</a></li>
+                    <li data-filter-camera-type="Bravo"><a data-toggle="tab" href="#" value='4' onclick="questionstate($(this).text())">全部状态</a></li>
+
+                  </ul>
+                </li>
+              </ul>
+
+              <span class="pull-right">共搜索到 <strong style="color:red;"><%=result.total%></strong> 条结果</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="resultdata">
+          <%if(result.docs){%>
+          <%result.docs.forEach(function(item,index){%>
+          <div class="layui-row">
+              <div class="layui-12">
+                  <div class="question-card">
+                    <div class="tag-area">
+                        <span class="tag"><%=item.questioncity%></span>
+                        <span class="tag"><%=item.questionmoney%></span>
+                        <span class="tag">
+                          <%if(item.questionstate==0){%>
+                            待回答
+                          <%}else if(item.questionstate==1){%>
+                            已结束
+                          <%}else{%>
+                            已采纳
+                          <%}%>
+                        </span>
+                    </div>
+
+                    <div class="questioner">
+                      <span class="info-item"><%=item.questioner%> | </span>
+                      <span class="info-item"><%=item.company%> | </span>
+                      <span class="info-item"><%=item.questiontime%></span>
+                    </div>
+
+                    <h1 class="description1">
+                        <a href="#"><%=item.questioncontent%></a>
+                    </h1>
+
+                    <div class="action-area">
+                        <span class="action-item" >
+                            <span class="glyphicon glyphicon-thumbs-up">0</span>
+                        </span>
+                        <span class="action-item">
+                           <span>
+                              <span class="apply-count">
+                                <span class="glyphicon glyphicon-comment"></span> <span ><%=item.answers.length%></span>个回答
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <%})%>
+          <%}%>
+          <div id="respage"></div>
+        </div>
+        
+        <div class="layui-row">
+            <div class="layui-row">
+                <footer class="footer">
+                    <span>©2018</span>
+                    <span id="icp" style="padding-right:10px;">计算机与软件学院</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+ 
+<script src="/lawapp/javascripts/layui.all.js"></script>
+<script>
+  let reqbody = '<%- JSON.stringify(reqbody) %>'
+      reqbody = reqbody.replace(/\n/g,'<br />')
+      reqbody = JSON.parse(reqbody);
+      console.log('reqbody-->',reqbody)
+
+  let city,questiontype1,state
+      function searchtype(type) {
+        $("#searchtypebtn").text(type);
+      }
+      function questioncity(city){
+        $('#questioncity').text(city)
+        //重新查询
+        //load(city,null,null)
+        city = city
+        $.ajax({
+          method:'post',
+          url:'/lawapp/searchapi',
+          data:{
+            limit:10,
+            page:1,
+            keywords:reqbody.keywords,
+            type:reqbody.type,
+            city:city,
+            state:state,
+            questiontype:questiontype1
+          },
+          success:function(res){
+            $('#resultdata').empty()
+            let $result = $(res)
+                $result.appendTo('#resultdata')  
+          },
+          error:function(err){
+
+          }
+        })
+      }
+      function questiontype(type){
+        $('#questiontype').text(type)
+        state = type
+        //load(null,val,null)
+        //state = val
+        $.ajax({
+          method:'post',
+          url:'/lawapp/searchapi',
+          data:{
+            limit:10,
+            page:1,
+            keywords:reqbody.keywords,
+            type:reqbody.type,
+            city:city,
+            state:state,
+            questiontype:questiontype1
+          },
+          success:function(res){
+            $('#resultdata').empty()
+            let $result = $(res)
+                $result.appendTo('#resultdata')  
+          },
+          error:function(err){
+
+          }
+        })
+      }
+      function questionstate(state){
+        $('#questionstate').text(state)
+        //load(null,null,val)
+        if(state == '待回答'){
+          questiontype1 = 0
+        }else if(state == '已结束'){
+          questiontype1 = 1
+        }else if(state == '已采纳'){
+          questiontype1 = 2
+        }else{
+          questiontype1 = 4
+        }
+        //questiontype1 = val
+        $.ajax({
+          method:'post',
+          url:'/lawapp/searchapi',
+          data:{
+            limit:10,
+            page:1,
+            keywords:reqbody.keywords,
+            type:reqbody.type,
+            city:city,
+            state:state,
+            questiontype:questiontype1
+          },
+          success:function(res){
+            $('#resultdata').empty()
+            let $result = $(res)
+                $result.appendTo('#resultdata')  
+          },
+          error:function(err){
+
+          }
+        })
+      }
+
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form','flow'], function(){
+      var layer = layui.layer
+      ,form = layui.form,
+      $ = layui.jquery,
+      laypage = layui.laypage      
+
+      laypage.render({
+        elem: 'respage'
+        ,theme: '#1E9FFF'
+        ,layout: ['count', 'prev', 'page', 'next']
+        ,count: '<%=result.total%>'//返回数据总数
+        ,curr: '<%=result.curr%>'//
+        ,jump: function(obj,first){
+          //首次不执行
+          if(first){
+            console.log('first--->',first)
+          }else{
+            //obj包含了当前分页的所有参数，比如：
+            console.log('click jump')
+            console.log('将请求第',obj.curr,'页')
+            console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+            console.log(obj.limit); //得到每页显示的条数
+
+            //请求并更新显示内容
+            $.ajax({
+              method:'post',
+              url:'/lawapp/searchapi',
+              data:{
+                limit:obj.limit,
+                page:obj.curr,
+                keywords:reqbody.keywords,
+                type:reqbody.type,
+                city:null,
+                state:state,
+                questiontype:null
+              },
+              //res.result.docs.forEach(function(item,index){
+              success:function(res){
+                $('#resultdata').empty()
+                console.log('res',res)
+                let $result = $(res)
+                console.log('$result',$result)
+                $result.appendTo('#resultdata') 
+                $result.find("script").appendTo('#resultdata')
+              },
+              error:function(err){
+                console.log(err)
+              }
+            })
+          }//else
+        }//jump
+      })//laypage
+      form.verify({
+          keywords1: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          },
+          keywords2: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          },
+          keywords3: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          },
+          keywords4: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          },
+          keywords5: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!value || value === '' || typeof(value) === 'undefined'){
+                return '请输入关键字'
+            }
+          }
+
+      }); //verify
+      form.on('submit(search1)',function(data){
+          console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+          console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+          console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+          return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+      })
+      //layer.msg('Hello World');
+    });
+</script> 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="/lawapp/javascripts/jquery-2.1.1.min.js"></script>
+<script src="/lawapp/javascripts/bootstrap.min.js" ></script>
+</body>
+</html>

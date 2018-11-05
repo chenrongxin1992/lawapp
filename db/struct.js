@@ -58,6 +58,37 @@ var catSchema = new Schema({
     createTimeStamp : {type:String,default:moment().format('X')}//创建时间戳
 })
 
+//提问和回答(对应搜索中type1)
+var questionandanswer = new Schema({
+    type:{type:String},
+    questioner : {type:String},//提问者
+    company : {type:String},//公司或机构
+    questiontime : {type:String,default:moment().format('YYYY-MM-DD HH:mm:ss')},//提问时间
+    tags : {type:Array},//标签
+    questiontype : {type:String},//问题类型 0专家号1快问快答
+    questioncity : {type:String},//问题所在城市
+    questionmoney : {type:String},//问题价格
+    questionstate : {type:String},//问题状态0提问中1已结束2已采纳
+    createTimeStamp : {type:String,default:moment().format('X')},
+    questioncontent : {type:String},//问题内容
+    answers : [{
+        answername:{type:String},//回答者名字
+        answertime:{type:String},//回答时间
+        answercontent:{type:String},//回答内容
+    }]
 
+})
+
+//民事判决
+var mspj = new Schema({
+    biaoti:{type:String},
+    fymc:{type:String},//法院名称
+    pjs:{type:String},//判决书
+    bh:{type:String},//编号
+    zw:{type:String},//正文
+    yjtl:{type:String}//依据条例
+})
 
 exports.catinfo = mongoose.model('catinfo',catSchema);
+exports.QueAndAns = mongoose.model('QueAndAns',questionandanswer);
+exports.mspj = mongoose.model('mspj',mspj);

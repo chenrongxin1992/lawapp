@@ -1,0 +1,94 @@
+       <div id="apptores">
+        <%result.docs.forEach(function(item,index){%>
+          <div class="layui-row">
+              <div class="layui-12">
+                  <div class="question-card">
+                    <div class="tag-area">
+                        <span class="tag"><%=item.questioncity%></span>
+                        <span class="tag"><%=item.questionmoney%></span>
+                        <span class="tag">
+                          <%if(item.questionstate==0){%>
+                            待回答
+                          <%}else if(item.questionstate==1){%>
+                            已结束
+                          <%}else{%>
+                            已采纳
+                          <%}%>
+                        </span>
+                    </div>
+
+                    <div class="questioner">
+                      <span class="info-item"><%=item.questioner%> | </span>
+                      <span class="info-item"><%=item.company%> | </span>
+                      <span class="info-item"><%=item.questiontime%></span>
+                    </div>
+
+                    <h1 class="description1">
+                        <a href="#"><%=item.questioncontent%></a>
+                    </h1>
+
+                    <div class="action-area">
+                        <span class="action-item" >
+                            <span class="glyphicon glyphicon-thumbs-up">0</span>
+                        </span>
+                        <span class="action-item">
+                           <span>
+                              <span class="apply-count">
+                                <span class="glyphicon glyphicon-comment"></span> <span ><%=item.answers.length%></span>个回答
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        <%})%>
+
+        <div id="respage"></div>
+      </div>
+<script>
+layui.use(['laypage','layer'], function(){
+  let laypage = layui.laypage
+  laypage.render({
+    elem: 'respage'
+    
+    ,theme: '#1E9FFF'
+    ,layout: ['count', 'prev', 'page', 'next']
+    ,count: '<%=result.total%>'//返回数据总数
+    ,curr: '<%=result.curr%>'//返回数据总数
+    ,jump: function(obj,first){
+      //首次不执行
+      if(first){
+        console.log('first--->',first)
+      }else{
+        //obj包含了当前分页的所有参数，比如：
+        console.log('click jump')
+        console.log('将请求第',obj.curr,'页')
+        console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+        console.log(obj.limit); //得到每页显示的条数
+        $.ajax({
+          method:'post',
+          url:'/lawapp/searchapi',
+          data:{
+            limit:obj.limit,
+            page:obj.curr,
+            keywords:reqbody.keywords,
+            type:reqbody.type,
+            city:city,
+            state:state,
+            questiontype:questiontype1
+          },
+          success:function(res){
+            $('#resultdata').empty()
+            let $result = $(res)
+                $result.appendTo('#resultdata') 
+          },
+          error:function(err){
+
+          }
+        })
+      }//else
+    }//jump
+  })//laypage
+})
+</script>
